@@ -29,9 +29,8 @@ class WebAppController: UIViewController {
         self.view.addSubview(webView)
          
         
-        
-//        let url = URL(string: "https://g-cdn.bootpay.co.kr/test/payment/index.html")
-        let url = URL(string: "https://test-shop.bootpay.co.kr")
+        let url = URL(string: "https://g-cdn.bootpay.co.kr/test/payment/index.html")
+//        let url = URL(string: "https://test-shop.bootpay.co.kr")
         
         if let url = url {
             let request = URLRequest(url: url)
