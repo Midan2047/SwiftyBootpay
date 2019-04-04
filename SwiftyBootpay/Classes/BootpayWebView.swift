@@ -28,6 +28,7 @@ class BootpayWebView: UIView {
     var bootpayScript = ""
     var parentController: BootpayController!
     func bootpayRequest(_ script: String) {
+        HTTPCookieStorage.shared.cookieAcceptPolicy = HTTPCookie.AcceptPolicy.always  // 현대카드 등 쿠키설정 이슈 해결을 위해 필요
         let configuration = WKWebViewConfiguration()
         configuration.userContentController.add(self, name: bridgeName)
         wv = WKWebView(frame: self.bounds, configuration: configuration)

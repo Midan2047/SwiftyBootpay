@@ -21,6 +21,7 @@ class WebAppController: UIViewController {
     }
     
     func setUI() {
+        HTTPCookieStorage.shared.cookieAcceptPolicy = HTTPCookie.AcceptPolicy.always // 현대카드 등 쿠키설정 이슈 해결을 위해 필요
         let configuration = WKWebViewConfiguration() //wkwebview <-> javasscript function(bootpay callback)
         configuration.userContentController.add(self, name: bridgeName)
         webView = WKWebView(frame: self.view.bounds, configuration: configuration)
@@ -29,8 +30,8 @@ class WebAppController: UIViewController {
         self.view.addSubview(webView)
          
         
-        let url = URL(string: "https://g-cdn.bootpay.co.kr/test/payment/index.html")
-//        let url = URL(string: "https://test-shop.bootpay.co.kr")
+//        let url = URL(string: "https://g-cdn.bootpay.co.kr/test/payment/index.html")
+        let url = URL(string: "https://test-shop.bootpay.co.kr")
         
         if let url = url {
             let request = URLRequest(url: url)
